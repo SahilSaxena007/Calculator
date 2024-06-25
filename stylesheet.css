@@ -1,0 +1,65 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: black;
+    width: 350px;
+    height: 500px;
+    border-radius: 3%;
+}
+.container .text-box, 
+.container .buttons{
+    border-radius: 3%;
+    width: auto;
+}
+
+.container .text-box{
+    height: 80px;
+    background-color: #1e1e1e;
+    margin: 12px 12px 8px 12px;
+}
+
+.container .buttons{
+    height: 385px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 12px 12px 12px;
+}
+
+button {
+    height: 70px;
+    width: 75px;
+    background-color: #1e1e1e;
+    border-radius: 5%;
+    padding-top: 5px;
+    outline: none;
+    border: none;
+}
+
+.buttons .orange{
+    background-color: #ed7014;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 550;
+}
+
+#special {
+    width: 160px;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 550;
+}
+
+span {
+    font-size: 25px;
+    color: #FFFFFF;
+    font-weight: 550;
+}
