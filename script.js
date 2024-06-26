@@ -39,7 +39,6 @@ function checkType(num){
 
 }
 
-// Function to operate
 function operate(a, b, op){
     let sol;
     if (op === '+'){
@@ -152,6 +151,59 @@ function populateButton(event){
     
 }
 
+function toggleStyles() {
+    let body = document.querySelector('body');
+    let doc = document.querySelector('html');
+    let container = document.querySelector('.container');
+    let toggleSwitch = document.getElementById('toggleSwitch'); 
+    let box = document.querySelector('.text-box'); 
+    let special_button = document.querySelector('#special');
+    let spans = document.querySelectorAll('span');
+    if (toggleSwitch.checked) {
+        // Apply dark mode styles
+        body.style.backgroundColor = '#1e1e1e'; 
+        doc.style.backgroundColor = '#1e1e1e';
+        container.style.backgroundColor = '#FFFFFF';
+        text_box.style.backgroundColor = '#D9D9D9';
+        box.style.backgroundColor = '#D9D9D9';
+        special_button.style.backgroundColor = '#000000';
+        special_button.style.color = '#FFFFFF';
+        number_buttons.forEach(function(number){
+            if (!number.classList.contains('orange') && number.id !== 'special'){
+                number.style.backgroundColor = '#D9D9D9';
+                
+            }
+        });
+
+        spans.forEach(function(span) {
+            if (!span.parentNode.classList.contains('orange') && span.parentNode.id !== 'special') {
+                span.style.color = '#000000';
+            }
+        });     
+            
+        
+    } else {
+        body.style.backgroundColor = '#FFFFFF'; 
+        doc.style.backgroundColor = '#FFFFFF';
+        container.style.backgroundColor = '#000000';
+        text_box.style.backgroundColor = '#1E1E1E';  
+        box.style.backgroundColor = '#1E1E1E';
+        special_button.style.backgroundColor = '#FFFFFF';
+        special_button.style.color = '#000000';
+        number_buttons.forEach(function(number){
+            if (!number.classList.contains('orange') && number.id !== 'special'){
+                number.style.backgroundColor = '#1E1E1E';
+            }
+        });
+
+        spans.forEach(function(span) {
+            if (!span.parentNode.classList.contains('orange') && span.parentNode.id !== 'special') {
+                span.style.color = '#FFFFFF';
+            }
+        });
+        
+    }
+}
 
 let num1, num2, operator;
 operator = "";
@@ -159,10 +211,16 @@ let text_box = document.querySelector('.text-box span');
 let number_buttons = document.querySelectorAll('button');
 let point_count = 0;
 let display_content = "";
+let toggle_switch = document.querySelector('.input');
+
+// Event Management
+toggle_switch.addEventListener('change', toggleStyles); 
 
 number_buttons.forEach(function(number){
     number.addEventListener('click', populateButton);
 });
 
 document.addEventListener('keydown',handleKeyEvent);
+
+toggle_switch.addEventListener('click',toggleStyles);
 
